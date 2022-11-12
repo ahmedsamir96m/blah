@@ -9,6 +9,7 @@ import { userQuery } from '../utils/data'
 import logo from '../assets/logo.png'
 
 import Pins from './Pins'
+import Footer from '../components/Footer'
 
 
 const Home = () => {
@@ -41,7 +42,8 @@ const Home = () => {
 	}, [])
 
 	return (
-		<div className='flex bg-gray-50 md:flex-row flex-col h-screen transaction-height duration=75 ease-out'>
+		<>
+			<div className='flex bg-gray-50 md:flex-row flex-col h-screen transaction-height duration=75 ease-out'>
 			<div className="hidden md:flex h-screen flex-initial">
 				<Sidebar user={user && user}/>
 			</div>
@@ -67,13 +69,15 @@ const Home = () => {
 				</div>
 			)}
 
-			<div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
-				<Routes>
-					<Route path='/user-profile/:userId' element={<UserProfile />}/>
-					<Route path='/*' element={<Pins user={user && user} />}/>
-				</Routes>
-			</div>
-		</div>
+				<div className="pb-2 flex-1 h-screen overflow-y-scroll" ref={scrollRef}>
+					<Routes>
+						<Route path='/user-profile/:userId' element={<UserProfile />}/>
+						<Route path='/*' element={<Pins user={user && user} />}/>
+					</Routes>
+				</div>
+			</div>		
+			<Footer />
+		</>
 	)
 }
 
