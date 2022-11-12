@@ -29,7 +29,7 @@ export default {
 		{
 			name: 'category',
 			title: 'Category',
-			type: 'url',
+			type: 'string',
 		},
 		{
 			name: 'userId',
